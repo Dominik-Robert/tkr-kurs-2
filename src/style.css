@@ -1,0 +1,207 @@
+* {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.App {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+/* Header */
+#nav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background-color: rgb(49, 128, 233);
+}
+
+#appLogo {
+	margin-left: 60px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	font-size: larger;
+	color: rgb(255, 255, 255);
+	font-weight: bolder;
+}
+
+/* Page Content */
+
+.pageContent {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+/* Sidebar */
+
+.sidebar {
+	width: 260px;
+	height: 100%;
+	background-color: #f3f2f1;
+	box-sizing: border-box;
+	border-right: 1px solid #d3d2d1;
+}
+
+/* Explorer Section*/
+
+.explorerSection {
+	width: 87%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Addbar */
+
+.addbar {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	box-sizing: border-box;
+	border-bottom: 1px solid #edebe9;
+}
+
+.addbarItem {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+/* AddbarItem - styling*/
+
+.label {
+	padding-right: 5px;
+	padding-left: 3px;
+	user-select: none;
+	font-size: 16px;
+}
+
+.icon {
+	padding-left: 10px;
+	color: rgb(49, 128, 233);
+	font-size: 35px !important;
+}
+
+.addContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dropdown {
+	width: 100%;
+	height: 90% !important;
+}
+
+.expander {
+	padding-right: 15px;
+	font-size: 35px !important;
+	color: rgb(134, 134, 134);
+}
+
+.addbarItem:hover {
+	background-color: rgb(243, 243, 243);
+}
+
+#space {
+	margin-left: 30px;
+}
+
+/* Addbar Modal */
+
+.modal-dialog {
+	max-width: 350px !important;
+}
+
+.modal-backdrop {
+	background-color: rgba(167, 167, 167, 0.521) !important;
+}
+
+.modal-header {
+	flex-direction: column !important;
+}
+
+.modalTitle {
+	width: 100% !important;
+}
+
+#modalCloseContainer {
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#titleContainer {
+	width: 50%;
+}
+
+.modalTitleLine {
+	width: 100% !important;
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: center !important;
+}
+
+.modal-dialog {
+	width: 100vh;
+	height: 90vh;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.nonSubmit {
+	display: none !important;
+}
+
+.modal-body {
+	padding: 0 !important;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100% !important;
+}
+
+.nameInput {
+	width: 100% !important;
+}
+
+.dropdown-item {
+	user-select: none;
+}
+
+/* Explorer */
+
+.explorer {
+	margin: 0;
+	width: 100%;
+	height: 89.5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* elementSection */
+
+.elementSection {
+	margin-top: 2%;
+	height: 100%;
+	width: 98%;
+	overflow-y: auto;
+}
+
+.elementSection::-webkit-scrollbar {
+	width: 8px;
+}
+
+.elementSection::-webkit-scrollbar-thumb {
+	background-color: rgba(185, 184, 184, 0.8);
+	height: 10px;
+}

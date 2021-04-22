@@ -5,6 +5,8 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+// Kleine Änderung
+
 var sqlite3 = require('sqlite3').verbose()
 var db = new sqlite3.Database('./database.db')
 

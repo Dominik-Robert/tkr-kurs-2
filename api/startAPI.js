@@ -1,3 +1,6 @@
+// dies ist die Datei die die API starten soll
+
+
 const express = require('express')
 const app = express()
 

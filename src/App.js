@@ -4,7 +4,9 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: []
+			data: [],
+			isLoading: true,
+			error: '',
 		}
 	}
 
@@ -13,11 +15,15 @@ class App extends React.Component {
 			.then(response => response.json())
 			.then(myData => {
 				this.setState({
-					data: myData
+					data: myData,
+					isLoading: false,
 				})
 			})
 			.catch((err) => {
-				console.log(err)
+				this.setState({
+					isLoading: false,
+					error: err
+				})
 		})
 	}
 
@@ -27,23 +33,39 @@ class App extends React.Component {
 				<li>{item.Inhalt}</li>
 			)
 		})
-
-		return (
-			<div>
-				<header>
-					<div id="logo">Notely</div>
-				</header>
-				<div className="pageContent">
-					<div className="sidebar"></div>
-					<div className="explorerSection">
-						<div className="addbar"></div>
-						<div className="explorer">
-							{ items }
+		if (this.state.isLoading && this.state.error === '' ) {
+			return (
+				<div>
+					Is Loading
+				</div>
+			)
+		}
+		if (this.state.isLoading && this.state.error !== '') {
+			return (
+				<div>
+					{ this.state.error }
+				</div>
+			)
+		}
+		else {
+			return (
+				<div>
+					<header>
+						<div id="logo">Notely</div>
+					</header>
+					<div className="pageContent">
+						<div className="sidebar"></div>
+						<div className="explorerSection">
+							<div className="addbar"></div>
+							<div className="explorer">
+								{ items }
+							</div>
+							<input type="text" />
 						</div>
 					</div>
 				</div>
-			</div>
-		);
+			);
+		}
 	}		
 }
 

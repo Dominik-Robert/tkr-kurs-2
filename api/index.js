@@ -63,7 +63,7 @@ db.serialize(() => {
 });
 
 
-db.run("INSERT INTO Notiz(Inhalt) VALUES ('Test')");
+db.run("INSERT INTO Notiz(Inhalt) VALUES ('Testsssss')");
 
 db.each("SELECT * FROM Notiz", function (err, row) {
   if (err) {

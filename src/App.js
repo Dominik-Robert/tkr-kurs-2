@@ -5,27 +5,28 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			data: [],
-			isLoading: true,
-			error: '',
-		}
+			loading: true,
+		};
 	}
 
 	componentDidMount() {
 		fetch('http://localhost:3001/api/v1/notes')
 			.then(response => response.json())
 			.then(myData => {
+				console.log('My Data', myData)
 				this.setState({
 					data: myData,
-					isLoading: false,
+					loading: false,
+					error: '',
 				})
-			})
-			.catch((err) => {
+			}).catch((err) => {
+				console.log('my error', err.toString())
 				this.setState({
 					isLoading: false,
-					error: err
+					error: err.toString(),
 				})
-		})
-	}
+			})
+		}
 
 	render() {
 		const items = this.state.data.map((item) => {
@@ -40,7 +41,7 @@ class App extends React.Component {
 				</div>
 			)
 		}
-		if (this.state.isLoading && this.state.error !== '') {
+		else if (this.state.isLoading === false && this.state.error !== '' ) {
 			return (
 				<div>
 					{ this.state.error }

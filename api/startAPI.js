@@ -1,15 +1,10 @@
 // dies ist die Datei die die API starten soll
 
-
 const express = require('express')
 const app = express()
-const cors = require('cors')
-
 
 var sqlite3 = require('sqlite3').verbose()
 var db = new sqlite3.Database('./database.db')
-
-app.use(cors())
 
 app.get('/api/v1/notes', (req, res) => {
   let daten = []

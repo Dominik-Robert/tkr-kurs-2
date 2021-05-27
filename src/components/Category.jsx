@@ -11,6 +11,7 @@ function Category({ Name, currentTopic, setCurrentTopic, data, setData }) {
 	const [topics, setTopics] = useState([]);
 
 	const getTopics = () => {
+		console.log("hi");
 		fetch(`http://localhost:3001/api/v1/topics/${Name}`)
 			.then((response) => response.json())
 			.then((myData) => {

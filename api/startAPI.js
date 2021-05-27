@@ -176,6 +176,8 @@ app.get('/api/v1/topics/', (req, res) => {
 app.get('/api/v1/topics/:category', (req, res) => {
   let daten = []
 
+  console.log(`Select Thema.Name From Kategorie INNER JOIN Thema ON Thema.KategorieName = Kategorie.Name Where Kategorie.Name='${req.params.category}'`)
+
   db.each(`Select Thema.Name From Kategorie INNER JOIN Thema ON Thema.KategorieName = Kategorie.Name Where Kategorie.Name='${req.params.category}'`, function (err, row) {
     daten.push(row)
   }, function () {

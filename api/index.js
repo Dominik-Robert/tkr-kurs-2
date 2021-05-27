@@ -63,12 +63,26 @@ db.serialize(() => {
 });
 
 
-db.run("INSERT INTO Notiz(Inhalt) VALUES ('Test')");
+// db.run("INSERT INTO Notiz(Inhalt) VALUES ('Testsssss')");
 
-db.each("SELECT * FROM Notiz", function (err, row) {
-  if (err) {
-    console.log('Error arised', err);
-  }
-  console.log('Mein Inhalt ist', row.Inhalt);
+// db.each("SELECT * FROM Notiz", function (err, row) {
+//   if (err) {
+//     console.log('Error arised', err);
+//   }
+//   console.log('Mein Inhalt ist', row.Inhalt);
+// })
+
+// db.run("INSERT INTO Autor(Name) VALUES ('Schramm')")
+
+// db.each("SELECT * FROM Autor", function (err, row) {
+//   if (err) {
+//     console.log('Error arised', err);
+//   }
+//   console.log('Vorname ', row.Vorname, ' Nachname: ', row.Name);
+// })
+
+db.each('SELECT * FROM Autor WHERE Username="tim" AND Password="1234"', function (err, row){
+  console.log("User: ", row.Password)
 })
+
 db.close();

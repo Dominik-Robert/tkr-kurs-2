@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,86 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input {
+  width: 200px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  height: 25px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+
+
+.mainMenu {
+  background-color: #4D4F9D;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.mainMenu h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+  padding: 15px 0px 15px 30px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.signUpButton button {
+  vertical-align: middle;
+  justify-content: center;
+}
+.sidebar {
+  width: 250px;
+  background-color:#C6CCE7 !important;
+  margin-top: 0px;
+  height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+
+} 
+
+/* sidebar */
+.sidebar h2 {
+  display: flex;
+  color: white;
+  padding: 0px 0px 0px 20px;
+}
+
+.sidebar ul{
+  list-style-type: none;
+  text-align: left;
+  padding: 0px 0px 0px 20px !important;
+  color: white;
+}
+
+.sidebar ul a{
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul li{
+  padding: 5px;
+  border: 3px solid white;
+  width: 150px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.middleBody {
+  display: flex;
+}
+
+.note h2{
+  margin-left: 20px;
+  border-bottom: 1px solid black;
+  padding-right: 20px;
 }

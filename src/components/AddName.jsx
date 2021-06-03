@@ -132,12 +132,17 @@ function AddName({
 						<Form
 							onSubmit={(e) => {
 								e.preventDefault();
-								handleSubmit();
-								setTitle("");
-								setShow(false);
-								setTimeout(() => {
-									updateData();
-								}, 200);
+								if (title.trim().length) {
+									setTitle(title.trim());
+									handleSubmit();
+									setTimeout(() => {
+										setTitle("");
+										setShow(false);
+										setTimeout(() => {
+											updateData();
+										}, 200);
+									}, 100);
+								}
 							}}
 						>
 							<FormGroup>

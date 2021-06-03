@@ -6,7 +6,7 @@ import {
 	Modal,
 	Button,
 } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 
 function AddName({
@@ -28,11 +28,11 @@ function AddName({
 	let first = true;
 
 	const handleSubmit = () => {
-		if (element == "Notiz") {
+		if (element === "Notiz") {
 			createNote();
-		} else if (element == "Kategorie") {
+		} else if (element === "Kategorie") {
 			createCategory();
-		} else if (element == "Thema") {
+		} else if (element === "Thema") {
 			createTopic();
 		}
 	};
@@ -104,11 +104,11 @@ function AddName({
 	};
 
 	const updateData = () => {
-		if (element == "Notiz") {
+		if (element === "Notiz") {
 			updateNote();
-		} else if (element == "Kategorie") {
+		} else if (element === "Kategorie") {
 			updateCategory();
-		} else if (element == "Thema") {
+		} else if (element === "Thema") {
 			updateTopic();
 		}
 	};
@@ -151,7 +151,7 @@ function AddName({
 								/>
 								<Button type="submit" className="nonSubmit"></Button>
 							</FormGroup>
-							{element == "Thema" && (
+							{element === "Thema" && (
 								<FormGroup controlId="exampleForm.ControlSelect1">
 									<FormLabel>Kategorie: </FormLabel>
 									<FormControl
@@ -159,9 +159,7 @@ function AddName({
 										onChange={(e) => setInCategory(e.target.value)}
 									>
 										{categories.map((category) => {
-											if (category.Name != null) {
-												return <option>{category.Name}</option>;
-											}
+											return <option>{category.Name}</option>;
 										})}
 										{first
 											? () => {

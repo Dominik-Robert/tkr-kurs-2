@@ -1,6 +1,5 @@
-import { Notes } from "@material-ui/icons";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import NoteElement from "./NoteElement";
 
 import TocIcon from "@material-ui/icons/Toc";
@@ -59,17 +58,15 @@ function Explorer({ data, setData, currentTopic, setCurrentTopic }) {
 					.slice(0)
 					.reverse()
 					.map((note) => {
-						if (note.Titel != null) {
-							return (
-								<NoteElement
-									reload={reloadNotes}
-									id={note.NotizID}
-									name={note.Titel}
-									lastChanged={note.LetzteAenderung}
-									created={note.Erstellung}
-								/>
-							);
-						}
+						return (
+							<NoteElement
+								reload={reloadNotes}
+								id={note.NotizID}
+								name={note.Titel}
+								lastChanged={note.LetzteAenderung}
+								created={note.Erstellung}
+							/>
+						);
 					})}
 				<div className="bottomExplore">
 					<p className="btm"></p>

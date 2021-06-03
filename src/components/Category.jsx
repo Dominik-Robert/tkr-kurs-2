@@ -44,17 +44,15 @@ function Category({ Name, currentTopic, setCurrentTopic, data, setData }) {
 			{expand && (
 				<div className="topicInCategory">
 					{topics.map((topic) => {
-						if (topic.Name != null) {
-							return (
-								<Topic
-									data={data}
-									setData={setData}
-									Name={topic.Name}
-									currentTopic={currentTopic}
-									setCurrentTopic={setCurrentTopic}
-								/>
-							);
-						}
+						return (
+							<Topic
+								data={data}
+								setData={setData}
+								Name={topic.Name}
+								currentTopic={currentTopic}
+								setCurrentTopic={setCurrentTopic}
+							/>
+						);
 					})}
 				</div>
 			)}

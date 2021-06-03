@@ -2,7 +2,7 @@ import "./style.css";
 import Sidebar from "./components/Sidebar.jsx";
 import Addbar from "./components/Addbar";
 import Explorer from "./components/Explorer.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import IconButton from "@material-ui/core/IconButton";

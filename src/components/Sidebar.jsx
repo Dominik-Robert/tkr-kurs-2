@@ -1,7 +1,6 @@
 import React from "react";
 import Category from "./Category";
-import { useState, useEffect } from "react";
-import Topic from "./Topic";
+import { useEffect } from "react";
 
 function Sidebar({
 	categories,
@@ -27,18 +26,15 @@ function Sidebar({
 			<div className="sidebarTop"></div>
 			<div className="sidebarElements">
 				{categories.map((category) => {
-					if (category.Name != null) {
-						console.log(category.Name);
-						return (
-							<Category
-								data={data}
-								setData={setData}
-								Name={category.Name}
-								currentTopic={currentTopic}
-								setCurrentTopic={setCurrentTopic}
-							/>
-						);
-					}
+					return (
+						<Category
+							data={data}
+							setData={setData}
+							Name={category.Name}
+							currentTopic={currentTopic}
+							setCurrentTopic={setCurrentTopic}
+						/>
+					);
 				})}
 			</div>
 			<div className="sidebarBottom"></div>

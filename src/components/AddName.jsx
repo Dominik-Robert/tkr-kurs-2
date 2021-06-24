@@ -22,10 +22,15 @@ function AddName({
 	currentTopic,
 	setCurrentTopic,
 }) {
+	var x = categories.length > 0 ? categories[0].Name : "";
+	console.log("0", x);
 	const [title, setTitle] = useState("");
 	const [inCategory, setInCategory] = useState("");
 
-	var optionRef = React.createRef();
+	setInCategory(x);
+
+	console.log("1", categories.length > 0 ? categories[0].Name : "");
+	console.log("2", inCategory);
 
 	const handleSubmit = () => {
 		if (element === "Notiz") {
@@ -113,10 +118,6 @@ function AddName({
 		}
 	};
 
-	const getInCategorie = () => {
-		setInCategory(optionRef.current.value);
-	};
-
 	return (
 		<div>
 			<Modal show={show} onHide={() => setShow(false)}>
@@ -136,7 +137,6 @@ function AddName({
 						<Form
 							onSubmit={(e) => {
 								e.preventDefault();
-								getInCategorie();
 								if (title.trim().length) {
 									setTitle(title.trim());
 									handleSubmit();
@@ -163,7 +163,10 @@ function AddName({
 							{element === "Thema" && (
 								<FormGroup controlId="exampleForm.ControlSelect1">
 									<FormLabel>Kategorie: </FormLabel>
-									<FormControl ref={optionRef} as="select">
+									<FormControl
+										as="select"
+										onChange={(e) => setInCategory(e.target.value)}
+									>
 										{categories.map((category) => {
 											return <option>{category.Name}</option>;
 										})}

@@ -206,6 +206,19 @@
 	user-select: none;
 }
 
+.submitButton {
+	display: flex;
+	justify-content: center;
+}
+
+.submitContainer {
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /* Explorer */
 
 .explorer {

@@ -12,6 +12,13 @@ var db = new sqlite3.Database('./database.db')
 app.use(express.json());
 app.use(cors())
 
+
+// Functions //
+
+
+
+
+
 /////////////////////////////////////////////////////////
 /////////// Note related /////////////////
 /////////////////////////////////////////////////////////
@@ -98,6 +105,8 @@ app.post("/api/v1/notes", (req, res) => {
 
   let date = new Date();
   let dateSave = (date.getDate()).toString() + "." + date.getMonth().toString() + "." + date.getFullYear().toString()
+
+  if(req.body.title.trim)
 
   db.run(`INSERT INTO Notiz(NotizId, Inhalt, Erstellung, LetzteAenderung, titel, ThemenName) VALUES(?,?,?,?,?, ?)`, [uuidv4(),"", dateSave, dateSave, req.body.title, req.body.themenName], function (err) {
     if (err) {

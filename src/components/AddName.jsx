@@ -25,7 +25,7 @@ function AddName({
 	const [title, setTitle] = useState("");
 	const [inCategory, setInCategory] = useState("");
 
-	let first = true;
+	var optionRef = React.createRef();
 
 	const handleSubmit = () => {
 		if (element === "Notiz") {
@@ -113,6 +113,10 @@ function AddName({
 		}
 	};
 
+	const getInCategorie = () => {
+		setInCategory(optionRef.current.value);
+	};
+
 	return (
 		<div>
 			<Modal show={show} onHide={() => setShow(false)}>
@@ -132,6 +136,7 @@ function AddName({
 						<Form
 							onSubmit={(e) => {
 								e.preventDefault();
+								getInCategorie();
 								if (title.trim().length) {
 									setTitle(title.trim());
 									handleSubmit();
@@ -154,28 +159,28 @@ function AddName({
 									aria-describedby="inputGroup-sizing-sm"
 									onChange={(e) => setTitle(e.target.value)}
 								/>
-								<Button type="submit" className="nonSubmit"></Button>
 							</FormGroup>
 							{element === "Thema" && (
 								<FormGroup controlId="exampleForm.ControlSelect1">
 									<FormLabel>Kategorie: </FormLabel>
-									<FormControl
-										as="select"
-										onChange={(e) => setInCategory(e.target.value)}
-									>
+									<FormControl ref={optionRef} as="select">
 										{categories.map((category) => {
 											return <option>{category.Name}</option>;
 										})}
-										{first
-											? () => {
-													setInCategory("hallo");
-													console.log(inCategory);
-													first = false;
-											  }
-											: ""}
 									</FormControl>
 								</FormGroup>
 							)}
+							<div className="submitContainer">
+								{element === "Thema" && (
+									<Button
+										variant="primary"
+										type="submit"
+										className="submitButton"
+									>
+										Submit
+									</Button>
+								)}
+							</div>
 						</Form>
 					</Modal.Body>
 				</Modal.Header>

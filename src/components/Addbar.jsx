@@ -15,6 +15,8 @@ function Addbar({
 	setTopics,
 	currentTopic,
 	setCurrentTopic,
+	inCategory,
+	setInCategory,
 }) {
 	const [element, setElement] = useState("");
 	const handleSelectElement = (e) => {
@@ -70,6 +72,8 @@ function Addbar({
 					setTopics={setTopics}
 					currentTopic={currentTopic}
 					setCurrentTopic={setCurrentTopic}
+					inCategory={inCategory}
+					setInCategory={setInCategory}
 				/>
 			</div>
 		</div>

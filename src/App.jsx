@@ -12,6 +12,7 @@ function App() {
 	const [categories, setCategories] = useState([]);
 	const [topics, setTopics] = useState([]);
 	const [currentTopic, setCurrentTopic] = useState("");
+	const [inCategory, setInCategory] = useState("");
 
 	return (
 		<div className="App">
@@ -46,6 +47,8 @@ function App() {
 						setTopics={setTopics}
 						currentTopic={currentTopic}
 						setCurrentTopic={setCurrentTopic}
+						inCategory={inCategory}
+						setInCategory={setInCategory}
 					/>
 					{currentTopic === "" ? (
 						<div className="replacement">

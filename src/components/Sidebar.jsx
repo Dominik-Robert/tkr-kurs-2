@@ -9,6 +9,8 @@ function Sidebar({
 	setCurrentTopic,
 	data,
 	setData,
+	topics,
+	setTopics,
 }) {
 	useEffect(() => {
 		fetch("http://localhost:3001/api/v1/categories")
@@ -28,6 +30,8 @@ function Sidebar({
 				{categories.map((category) => {
 					return (
 						<Category
+							topics={topics}
+							setTopics={setTopics}
 							data={data}
 							setData={setData}
 							Name={category.Name}

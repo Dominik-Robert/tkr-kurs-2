@@ -6,7 +6,7 @@ import {
 	Modal,
 	Button,
 } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 
 function AddName({
@@ -21,16 +21,14 @@ function AddName({
 	setTopics,
 	currentTopic,
 	setCurrentTopic,
+	inCategory,
+	setInCategory,
 }) {
 	var x = categories.length > 0 ? categories[0].Name : "";
-	console.log("0", x);
+
 	const [title, setTitle] = useState("");
-	const [inCategory, setInCategory] = useState("");
 
 	setInCategory(x);
-
-	console.log("1", categories.length > 0 ? categories[0].Name : "");
-	console.log("2", inCategory);
 
 	const handleSubmit = () => {
 		if (element === "Notiz") {

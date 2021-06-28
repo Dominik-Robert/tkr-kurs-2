@@ -40,6 +40,7 @@ function Sidebar({
 						/>
 					);
 				})}
+				{/* <h4>Login</h4> */}
 			</div>
 			<div className="sidebarBottom"></div>
 		</div>

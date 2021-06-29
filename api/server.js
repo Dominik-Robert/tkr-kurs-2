@@ -13,79 +13,23 @@ app.use(express.json());
 app.use(cors())
 
 
+app.use('/api/v1/', require("./endpoints/index.js"))
+
+
+// Listener
+app.listen(3001, () => {
+  console.log(`Example app listening at http://localhost:3001`)
+})
+
 // Functions //
-
-
-
-
-
 /////////////////////////////////////////////////////////
 /////////// Note related /////////////////
 /////////////////////////////////////////////////////////
 
 ////////// Notes ////////////
 
-// Einzelne Notiz
-app.get('/api/v1/note/:id', (req, res) => {
-  let daten = []
 
-  db.each(`SELECT * FROM Notiz WHERE NotizID = '${req.params.id}'`, function (err, row) {
-    daten.push(row)
-  }, function () {
-    res.header('content-type', 'application/json')
-    res.send(JSON.stringify(daten))
-  });
-})
-
-// Updaten
-
-app.put("/api/v1/note/:id/:param/:value", (req, res) => {
-  db.run(`UPDATE Notiz SET ${req.params.param}='${req.params.value}' WHERE NotizID='${req.params.id}';`, (err) => {
-    if (err) {
-      console.log(err)
-    }
-  })
-  res.header('content-type', 'application/json');
-  res.send(`{"status": "success"}`)
-})
-
-// Get single params out of every note
-app.get('/api/v1/notes/:param', (req, res) => {
-  let daten = []
-  db.each("SELECT * FROM Notiz", function (err, row) {
-    daten.push(row[req.params.param])
-    
-  }, function () {
-    res.header('content-type', 'application/json')
-    res.send(JSON.stringify(daten))
-  });
-})
-
-// delete specific note with the id
-app.delete("/api/v1/notes/:id", (req, res) => {
-  console.log(parseInt(req.params.id))
-  db.run(`DELETE FROM Notiz WHERE NotizID='${req.params.id}';`, (err) => {
-    if (err) {
-      console.log(err)
-    }
-  })
-  res.header('content-type', 'application/json');
-  res.send(`{"status": "success"}`)
-})
-
-// get all notes with all params
-app.get('/api/v1/notes/', (req, res) => {
-  let daten = []
-
-  db.each("SELECT * FROM Notiz LIMIT 100", function (err, row) {
-    daten.push(row)
-  }, function () {
-    res.header('content-type', 'application/json')
-    res.send(JSON.stringify(daten))
-  });
-})
-
-
+/*
 // get all notes in a specific topic
 app.get('/api/v1/notes/inTopic/:topic', (req, res) => {
   let daten = []
@@ -210,12 +154,6 @@ app.put("/api/v1/category/:Name/:value", (req, res) => {
 /////////////////////////////////////////////////////////
 /////////// Account related /////////////////
 /////////////////////////////////////////////////////////
+*/
 
 
-
-
-
-// Listener
-app.listen(3001, () => {
-  console.log(`Example app listening at http://localhost:3001`)
-})
